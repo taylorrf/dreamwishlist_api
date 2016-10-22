@@ -17,6 +17,7 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false
           }
         });
+        Layer.belongsTo(models.User, {foreignKey: 'user_id'});
       }
     }
   });

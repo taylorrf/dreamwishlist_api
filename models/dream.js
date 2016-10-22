@@ -7,7 +7,7 @@ module.exports = function(sequelize, DataTypes) {
   }, {
     classMethods: {
       associate: function(models) {
-        Dream.hasMany(models.Layer);
+        Dream.hasMany(models.Layer, {foreignKey: 'dream_id'});
         Dream.belongsTo(models.User, {foreignKey: 'user_id'});
       }
     }
