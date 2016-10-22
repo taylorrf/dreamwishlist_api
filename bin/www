@@ -7,6 +7,9 @@
 var app = require('../app');
 var debug = require('debug')('dreamwishlist_api:server');
 var http = require('http');
+var cluster = require('cluster');
+var os = require('os');
+var cpus = os.cpus();
 
 /**
  * Get port from environment and store in Express.
@@ -15,24 +18,39 @@ var http = require('http');
 var port = normalizePort(process.env.PORT || '3000');
 app.set('port', port);
 
-/**
- * Create HTTP server.
- */
+ if(cluster.isMaster){
+   cpus.forEach(function(){
+     cluster.fork();
+   });
 
-var server = http.createServer(app);
+   cluster.on('listening', function(worker){
+     console.log('running worker ' +  worker.process.pid);
+   });
 
-/**
- * Listen on provided port, on all network interfaces.
- */
+   cluster.on('exit', function(worker, code, signal){
+      if (signal) {
+        console.log('worker ' + worker.process.pid + ' was killed by signal: ' + signal);
+      } else if (code !== 0) {
+        console.log('worker ' + worker.process.pid + ' exited with error code: ' + code);
+      } else {
+        console.log('worker ' + worker.process.pid + ' success!');
+      }
+      cluster.fork();
+   });
 
-server.listen(port);
-server.on('error', onError);
-server.on('listening', onListening);
+ }else{
+   /**
+    * Create HTTP server.
+    */
+   var server = http.createServer(app);
+   server.listen(port);
+   server.on('error', onError);
+   server.on('listening', onListening);
+ }
 
 /**
  * Normalize a port into a number, string, or false.
  */
-
 function normalizePort(val) {
   var port = parseInt(val, 10);
 
