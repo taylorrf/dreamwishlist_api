@@ -1,0 +1,16 @@
+'use strict';
+module.exports = function(sequelize, DataTypes) {
+  var Dream = sequelize.define('Dream', {
+    category: DataTypes.STRING,
+    subcategory: DataTypes.STRING,
+    user_id: DataTypes.INTEGER
+  }, {
+    classMethods: {
+      associate: function(models) {
+        Dream.hasMany(models.Layer);
+        Dream.belongsTo(models.User, {foreignKey: 'user_id'});
+      }
+    }
+  });
+  return Dream;
+};
