@@ -3,5 +3,5 @@
   "version": "0.0.1",
   "description": "API to serve Dream Wishlist apps",
   "title": "Dream Wishlist API",
-  "url" : "https://dream_wishlist.herokuapp.com/"
+  "url" : "https://dreamwishlist-api.herokuapp.com/"
 }

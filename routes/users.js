@@ -55,6 +55,7 @@ var users = function(app){
   *
   * @apiParam {String} name User name.
   * @apiParam {String} firebase_key Unique Key provided by firebase.google.com service.
+  * @apiParam {String} photo_url User photo URL.
   *
   * @apiParamExample {json} Request-Example:
   *     {
@@ -65,8 +66,14 @@ var users = function(app){
   *
   * @apiSuccessExample {json} Success-Response:
   * HTTP/1.1 200 OK
-  *  {
-  *  }
+  * {
+  *  "id": 1,
+  *  "name": "John Doe",
+  *  "firebase_key": "123123",
+  *  "photo_url": null,
+  *  "createdAt": "2016-10-22T21:53:03.202Z",
+  *  "updatedAt": "2016-10-22T21:53:03.202Z"
+  * }
   */
   app.post('/user', function(req, res, next) {
     var firebase_key = req.body.firebase_key;
@@ -88,7 +95,6 @@ var users = function(app){
       }
     })
   });
-
 
     /**
     * @api {all requests} api/ API Authentication
