@@ -4,16 +4,17 @@ var models  = require('../models');
 
 var dreams = function(app){
   /**
-  * @api {post} user Create a new User
-  * @apiName CreateUser
-  * @apiGroup User
+  * @api {post} dreams Create a Dream
+  * @apiName CreateDream
+  * @apiGroup Dream
   *
-  * @apiParam {String} firebase_key Unique Key provided by firebase.google.com service.
+  * @apiParam {String} category Dream category.
+  * @apiParam {String} subcategory Dream subcategory.
   *
   * @apiParamExample {json} Request-Example:
   *     {
-  *       "name": "John Doe",
-  *       "firebase_key": "123123"
+  *       "category": "Sport",
+  *       "subcategory": "Football"
   *     }
   *
   * @apiSuccessExample {json} Success-Response:
