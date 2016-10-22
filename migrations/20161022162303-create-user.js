@@ -14,6 +14,9 @@ module.exports = {
       firebase_key: {
         type: Sequelize.STRING
       },
+      photo_url: {
+        type: Sequelize.STRING
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE

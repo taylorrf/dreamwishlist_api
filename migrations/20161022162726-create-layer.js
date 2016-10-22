@@ -18,7 +18,7 @@ module.exports = {
         type: Sequelize.STRING
       },
       product_id: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       dream_id: {
         type: Sequelize.INTEGER

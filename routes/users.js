@@ -36,6 +36,7 @@ var users = function(app){
   *    ]
   *  }
   */
+
   app.get('/api/user', function(req, res, next) {
     models.User.findOne({
       include : [{model: models.Dream} ],
@@ -58,7 +59,8 @@ var users = function(app){
   * @apiParamExample {json} Request-Example:
   *     {
   *       "name": "John Doe",
-  *       "firebase_key": "123123"
+  *       "firebase_key": "123123",
+  *       "photo_url": "http://www.source.com/photo.jpg"
   *     }
   *
   * @apiSuccessExample {json} Success-Response:
@@ -76,6 +78,7 @@ var users = function(app){
       if (!user) {
         models.User.create({
           name: req.body.name,
+          photo_url: req.body.photo_url,
           firebase_key: firebase_key
         }).bind(user).then(function(user){
             res.json(user);
@@ -117,7 +120,6 @@ var users = function(app){
     *     }
     *
     */
-
 }
 
 module.exports = users;

@@ -4,7 +4,7 @@ var models  = require('../models');
 
 var dreams = function(app){
   /**
-  * @api {post} dreams Create a Dream
+  * @api {post} api/dreams Create a Dream
   * @apiName CreateDream
   * @apiGroup Dream
   *
@@ -125,7 +125,7 @@ var dreams = function(app){
   });
 
   /**
-   * @api {put} api/dreams/ Editing a Dream
+   * @api {put} api/dreams/ Updating a Dream
    * @apiName EditDream
    * @apiGroup Dream
    *
@@ -135,9 +135,9 @@ var dreams = function(app){
    *
    * @apiParamExample {json} Request-Example:
    *     {
-   *       "id": "1"
+   *       "id": "1",
    *       "category": "movie",
-   *       "subcategory": "inception",
+   *       "subcategory": "inception"
    *     }
    *
    * @apiSuccess {Integer} id Dream ID.
@@ -159,6 +159,22 @@ var dreams = function(app){
    *   }
    */
   app.put('/api/dreams', function(req, res, next) {
+    models.Dream.findOne({
+      attributes:  { exclude: ['UserId'] },
+      where: {
+        id: req.body.id
+      }
+    }).then(function (dream) {
+      // Check if record exists in db
+      if (dream) {
+        dream.updateAttributes({
+          category: req.body.category,
+          subcategory: req.body.subcategory
+        }).then(function (dream) {
+          res.json(dream);
+        })
+      }
+    })
   });
 
   /**
