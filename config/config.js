@@ -1,3 +1,11 @@
+/**
+ * Database config
+ * Using env vars to the define the values
+ *
+ * @author taylorrf
+ * @version 1.0
+ */
+
 var config = {
   "development": {
     "username": process.env.DB_USER,

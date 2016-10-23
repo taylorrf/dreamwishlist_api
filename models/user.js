@@ -1,3 +1,10 @@
+/**
+ * User Model.
+ *
+ * @author taylorrf
+ * @version 1.0
+ */
+
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var User = sequelize.define('User', {

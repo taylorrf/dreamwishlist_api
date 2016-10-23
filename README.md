@@ -1,15 +1,21 @@
 # Dream Wishlist API
 API to serve Dream Wishlist apps.
 
+![(https://dreamwishlist-api.herokuapp.com/)](https://raw.githubusercontent.com/taylorrf/dreamwishlist_api/master/public/img/Dream_Wishlist_API.jpg)
+
 Deployed on Heroku at https://dreamwishlist-api.herokuapp.com
 
 #### Apps
 Here's some apps consuming this API:
 
 iOS: https://github.com/cassianomonteiro/vanhackathon2
+
 demo: https://www.youtube.com/watch?v=21728hNrxsI
 
+
+
 Android: https://github.com/jrvansuita/DreamShop
+
 demo: https://www.youtube.com/watch?v=8aYSKTKC4gY
 
 #### Stack

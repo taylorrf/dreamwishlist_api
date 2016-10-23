@@ -1,3 +1,10 @@
+/**
+ * Dreams Route.
+ *
+ * @author taylorrf
+ * @version 1.0
+ */
+
 "use strict";
 
 var models  = require('../models');

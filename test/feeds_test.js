@@ -1,3 +1,10 @@
+/**
+ * Feeds functional test.
+ *
+ * @author taylorrf
+ * @version 1.0
+ */
+
 'use strict';
 
 var should = require('chai').should(),

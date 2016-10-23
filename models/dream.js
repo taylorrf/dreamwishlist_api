@@ -1,3 +1,10 @@
+/**
+ * Dream Model.
+ *
+ * @author taylorrf
+ * @version 1.0
+ */
+
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Dream = sequelize.define('Dream', {
