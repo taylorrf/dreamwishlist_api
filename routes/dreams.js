@@ -205,6 +205,8 @@ var dreams = function(app){
         }).then(function (dream) {
           res.json(dream);
         })
+      }else{
+        res.send({"success": false, "message": "Dream not found to #"+ req.body.id});
       }
     })
   });

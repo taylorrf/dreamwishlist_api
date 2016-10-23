@@ -48,7 +48,6 @@ app.use('/api', apiRoutes);
 
 consign().
   include('routes').
-  then('serializers').
   into(app);
 
 // catch 404 and forward to error handler

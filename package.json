@@ -20,5 +20,11 @@
     "sequelize-cli": "^2.4.0",
     "sequelize-to-json": "^0.10.1",
     "serve-favicon": "~2.3.0"
+  },
+  "devDependencies": {
+    "bluebird": "^3.4.6",
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2",
+    "supertest": "^2.0.1"
   }
 }
