@@ -170,6 +170,25 @@ describe('Layers', function(){
     });
   });
 
+  it('fails on updates unfound layer', function (done) {
+      api.put('/api/layers')
+      .send({
+          id: 0,
+          type: "video",
+          description: "cool",
+          product_id: "444"})
+      .set('firebase_key', 'secrectmarykey')
+      .set('Accept', 'application/json')
+      .expect(404)
+      .end(function(err, res){
+        expect(res.body).to.have.property("success");
+        expect(res.body.success).to.equal(false);
+        expect(res.body).to.have.property("message");
+        expect(res.body.message).to.equal("Layer not found to the provided ID #0");
+        done();
+      })
+  });
+
   it('delete a layer', function (done) {
     this.models.Layer.create({
         dream_id: layerDream.id,

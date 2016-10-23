@@ -125,6 +125,25 @@ describe('Dreams', function(){
     });
   });
 
+  it('fails on updates unfound dream', function (done) {
+      api.put('/api/dreams')
+      .send({
+          id: 0,
+          category: "sport",
+          subcategory: "football",
+        })
+      .set('firebase_key', 'secrectjohnkey')
+      .set('Accept', 'application/json')
+      .expect(404)
+      .end(function(err, res){
+        expect(res.body).to.have.property("success");
+        expect(res.body.success).to.equal(false);
+        expect(res.body).to.have.property("message");
+        expect(res.body.message).to.equal("Dream not found to the provided ID #0");
+        done();
+      })
+  });
+
   it('delete a dream', function (done) {
     this.models.Dream.create({
       category: "sport",
