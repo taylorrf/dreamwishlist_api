@@ -223,6 +223,8 @@ var layers = function(app){
         }).then(function (layer) {
           res.json(layer);
         })
+      }else{
+        res.send({"success": false, "message": "Layer not found to #"+ req.body.id});
       }
     })
   });
