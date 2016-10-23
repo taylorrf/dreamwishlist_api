@@ -49,6 +49,8 @@ var dreams = function(app){
    * @apiSuccess {Integer} user_id User related to the Dream.
    * @apiSuccess {Date} createdAt Date when the Dream was created
    * @apiSuccess {Date} updatedAt Date of the last Dream update
+   * @apiSuccess {User} User Dream's object user
+   * @apiSuccess {Layers} Layer Layers objects related to the Dream
    *
    * @apiSuccessExample {json} Success-Response:
    * HTTP/1.1 200 OK
