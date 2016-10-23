@@ -2,9 +2,8 @@
 
 var should = require('chai').should(),
 expect = require('chai').expect,
-supertest = require('supertest'),
-Bluebird = require('bluebird'),
-api = supertest('http://localhost:3000');
+api = require('supertest')('http://localhost:3000'),
+Bluebird = require('bluebird');
 
 describe('User', function(){
 
