@@ -7,9 +7,10 @@ Deployed on Heroku at https://dreamwishlist-api.herokuapp.com
 Here's some apps consuming this API:
 
 iOS: https://github.com/cassianomonteiro/vanhackathon2
+demo: https://www.youtube.com/watch?v=21728hNrxsI
 
 Android: https://github.com/jrvansuita/DreamShop
-
+demo: https://www.youtube.com/watch?v=8aYSKTKC4gY
 
 #### Stack
 Here's a quick list of the most important parts of the tech stack to build it:

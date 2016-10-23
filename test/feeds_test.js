@@ -13,10 +13,11 @@ describe('Feeds', function(){
 
   beforeEach(function () {
     this.models = require('../models');
-    this.current_dream = {};
 
     return Bluebird.all([
-      this.models.Layer.destroy({ truncate: true })
+      this.models.Layer.destroy({ truncate: true }),
+      this.models.User.destroy({ truncate: true }),
+      this.models.Dream.destroy({ truncate: true })
     ]);
   });
 
