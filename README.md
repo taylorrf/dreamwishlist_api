@@ -1,5 +1,24 @@
 # Dream Wishlist API
-API to serve Dream Wishlist apps
+API to serve Dream Wishlist apps.
+
+Deployed on Heroku at https://dreamwishlist-api.herokuapp.com
+
+#### Apps
+Here's some apps consuming this API:
+
+iOS: https://github.com/cassianomonteiro/vanhackathon2
+
+Android: https://github.com/jrvansuita/DreamShop
+
+
+#### Stack
+Here's a quick list of the most important parts of the tech stack to build it:
+- NodeJS (4.2.3)
+- Express (4.13.4)
+- PostgreSQL (9.5.4)
+- Sequelize ORM (3.24.4)
+
+Tests using mocha, supertest and chai.
 
 #### MIT License
 
