@@ -189,6 +189,13 @@ var dreams = function(app){
    *   "createdAt": "2016-10-22T19:08:45.056Z",
    *   "updatedAt": "2016-10-22T19:08:45.056Z"
    *   }
+   *
+   * @apiErrorExample {json} Error-Response:
+   *     HTTP/1.1 404 Not Found
+   *     {
+   *       "success": false,
+   *       "message": "Dream not found to the provided ID #1212"
+   *     }
    */
   app.put('/api/dreams', function(req, res, next) {
     models.Dream.findOne({
@@ -206,7 +213,12 @@ var dreams = function(app){
           res.json(dream);
         })
       }else{
-        res.send({"success": false, "message": "Dream not found to #"+ req.body.id});
+        res.status(404).send(
+          {
+            "success": false,
+            "message": "Dream not found to the provided ID #"+ req.body.id
+          }
+        );
       }
     })
   });

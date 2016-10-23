@@ -114,7 +114,6 @@ var layers = function(app){
           res.json(dream);
       })
     }
-
   });
 
   /**
@@ -203,6 +202,13 @@ var layers = function(app){
    *    "createdAt": "2016-11-22T21:05:23.052Z",
    *    "updatedAt": "2016-11-22T21:05:23.052Z"
    *  }
+   *
+   * @apiErrorExample {json} Error-Response:
+   *     HTTP/1.1 404 Not Found
+   *     {
+   *       "success": false,
+   *       "message": "Layer not found to the provided ID #1212"
+   *     }
    */
   app.put('/api/layers', function(req, res, next) {
     models.Layer.findOne({
@@ -224,7 +230,12 @@ var layers = function(app){
           res.json(layer);
         })
       }else{
-        res.send({"success": false, "message": "Layer not found to #"+ req.body.id});
+        res.status(404).send(
+          {
+            "success": false,
+            "message": "Layer not found to the provided ID #"+ req.body.id
+          }
+        );
       }
     })
   });
